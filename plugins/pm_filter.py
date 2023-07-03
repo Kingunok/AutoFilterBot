@@ -587,6 +587,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 ]
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
+            await message.reply_chat_action(enums.ChatAction.TYPING)
+            m=await message.reply_sticker("CAACAgUAAxkBAAIFNGJSlfOErbkSeLt9SnOniU-58UUBAAKaAAPIlGQULGXh4VzvJWoeBA")
+            await asyncio.sleep(1)
+            await m.delete()
             k = await query.message.edit_text(text=f"Change your settings for <b>'{title}'</b> as your wish. ⚙", reply_markup=reply_markup)
             await asyncio.sleep(300)
             await k.delete()
@@ -667,6 +671,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 ]
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
+            await message.reply_chat_action(enums.ChatAction.TYPING)
+            m=await message.reply_sticker("CAACAgUAAxkBAAIFNGJSlfOErbkSeLt9SnOniU-58UUBAAKaAAPIlGQULGXh4VzvJWoeBA")
+            await asyncio.sleep(1)
+            await m.delete()
             await query.answer("Changed!")
             await query.message.edit_reply_markup(reply_markup)
 
@@ -842,6 +850,10 @@ async def auto_filter(client, msg, spoll=False):
     if imdb and imdb.get('poster'):
         try:
             if settings["auto_delete"]:
+                await message.reply_chat_action(enums.ChatAction.TYPING)
+                m=await message.reply_sticker("CAACAgUAAxkBAAIFNGJSlfOErbkSeLt9SnOniU-58UUBAAKaAAPIlGQULGXh4VzvJWoeBA")
+                await asyncio.sleep(1)
+                await m.delete()
                 k = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024] + "\n\n<i>⚠️ This message will be auto delete after One Hours to avoid copyright issues.</i>", reply_markup=InlineKeyboardMarkup(btn))
                 await asyncio.sleep(3600)
                 await k.delete()
@@ -855,6 +867,10 @@ async def auto_filter(client, msg, spoll=False):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             if settings["auto_delete"]:
+                await message.reply_chat_action(enums.ChatAction.TYPING)
+                m=await message.reply_sticker("CAACAgUAAxkBAAIFNGJSlfOErbkSeLt9SnOniU-58UUBAAKaAAPIlGQULGXh4VzvJWoeBA")
+                await asyncio.sleep(1)
+                await m.delete()          
                 k = await message.reply_photo(photo=poster, caption=cap[:1024] + "\n\n<i>⚠️ This message will be auto delete after One Hours to avoid copyright issues.</i>", reply_markup=InlineKeyboardMarkup(btn))
                 await asyncio.sleep(3600)
                 await k.delete()
@@ -867,6 +883,10 @@ async def auto_filter(client, msg, spoll=False):
         except Exception as e:
             logger.exception(e)
             if settings["auto_delete"]:
+                await message.reply_chat_action(enums.ChatAction.TYPING)
+                m=await message.reply_sticker("CAACAgUAAxkBAAIFNGJSlfOErbkSeLt9SnOniU-58UUBAAKaAAPIlGQULGXh4VzvJWoeBA")
+                await asyncio.sleep(1)
+                await m.delete()
                 k = await message.reply_text(cap + "\n\n<i>⚠️ This message will be auto delete after One Hours to avoid copyright issues.</i>", reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True)
                 await asyncio.sleep(3600)
                 await k.delete()
@@ -877,7 +897,10 @@ async def auto_filter(client, msg, spoll=False):
             else:
                 await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True)
     else:
-        if settings["auto_delete"]:
+        if settings["auto_delete"]:await message.reply_chat_action(enums.ChatAction.TYPING)
+            m=await message.reply_sticker("CAACAgUAAxkBAAIFNGJSlfOErbkSeLt9SnOniU-58UUBAAKaAAPIlGQULGXh4VzvJWoeBA")
+            await asyncio.sleep(1)
+            await m.delete()
             k = await message.reply_text(cap + "\n\n<i>⚠️ This message will be auto delete after One Hours to avoid copyright issues.</i>", reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True)
             await asyncio.sleep(3600)
             await k.delete()
