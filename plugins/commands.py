@@ -27,7 +27,7 @@ async def start(client, message):
             InlineKeyboardButton('🔥 Support Group 🔥', url=SUPPORT_LINK)
         ]]
         s = await message.reply_sticker(sticker=random.choice(STICKERS), reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(30)
+        await asyncio.sleep(3)
         await s.delete()
         try:
             await message.delete()
@@ -52,6 +52,10 @@ async def start(client, message):
             InlineKeyboardButton('ᴇᴀʀɴ ᴍᴏɴᴇʏ ʙʏ ʙᴏᴛ', callback_data='earn')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await message.reply_chat_action(enums.ChatAction.TYPING)
+        m=await message.reply_sticker("CAACAgUAAxkBAAIFNGJSlfOErbkSeLt9SnOniU-58UUBAAKaAAPIlGQULGXh4VzvJWoeBA")
+        await asyncio.sleep(1)
+        await m.delete()        
         await message.reply_photo(
             photo=random.choice(PICS),
             caption=script.START_TXT,
@@ -76,6 +80,10 @@ async def start(client, message):
                 btn.append([InlineKeyboardButton("🔄 Try Again 🔄", callback_data=f"{pre}#{file_id}")])
             except (IndexError, ValueError):
                 btn.append([InlineKeyboardButton("🔄 Try Again 🔄", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+        await message.reply_chat_action(enums.ChatAction.TYPING)
+        m=await message.reply_sticker("CAACAgUAAxkBAAIFNGJSlfOErbkSeLt9SnOniU-58UUBAAKaAAPIlGQULGXh4VzvJWoeBA")
+        await asyncio.sleep(1)
+        await m.delete()
         await message.reply_photo(
             photo=random.choice(PICS),
             caption=f"👋 Hello {message.from_user.mention},\n\nPlease join my 'Updates Channel' and try again. 😇",
@@ -93,6 +101,10 @@ async def start(client, message):
             InlineKeyboardButton('ᴇᴀʀɴ ᴍᴏɴᴇʏ ʙʏ ʙᴏᴛ', callback_data='earn')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await message.reply_chat_action(enums.ChatAction.TYPING)
+        m=await message.reply_sticker("CAACAgUAAxkBAAIFNGJSlfOErbkSeLt9SnOniU-58UUBAAKaAAPIlGQULGXh4VzvJWoeBA")
+        await asyncio.sleep(1)
+        await m.delete()
         await message.reply_photo(
             photo=random.choice(PICS),
             caption=script.START_TXT,
